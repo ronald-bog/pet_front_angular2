@@ -1,0 +1,19 @@
+<section class="home">
+  <div class="modal" *ngIf="showLogin">
+    <div class="form_container">
+      <img class="form_close" src="../../../assets/icons/xmark.svg" width="20px" (click)="closeLogin()">
+      <div class="login_form">
+          <h2>Login</h2>
+          <div class="input_box">
+            <input class="correo" type="email" [(ngModel)]="correo" placeholder="Ingrese correo" />
+          </div>
+          <div class="input_box">
+            <input class="password" type="password" [(ngModel)]="password" placeholder="Password" />
+            <i class=" password"></i>
+          </div>
+          <button type="submit" class="button" (click)="login()">Ingresar</button>
+          <div class="login_signup">¿No tienes cuenta? <a href="#" routerLink="/register"> Registrarse</a></div>
+      </div>
+    </div>
+  </div>
+</section>

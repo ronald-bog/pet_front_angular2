@@ -1,0 +1,30 @@
+<div class="encabezado-contact">
+  <p>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non impedit distinctio sit eos aut est numquam doloremque quidem cumque sint, iste enim voluptatum explicabo porro, nesciunt facere alias voluptate? Possimus perspiciatis quasi accusantium similique delectus ipsum fugiat maxime voluptatem! Suscipit, commodi libero assumenda iusto inventore sunt dolores? Asperiores eius rem quasi perferendis beatae dignissimos labore exercitationem sunt amet porro officiis cupiditate laborum consequuntur, repellendus magni illo accusamus fugit voluptatibus deleniti eveniet similique aut. Unde vitae quia ipsam eos impedit amet, itaque consequuntur, accusamus doloribus nesciunt ab ducimus nemo numquam, ex omnis magni quo magnam commodi? Nisi quasi necessitatibus architecto id!
+  </p>
+</div>
+<div class="container-contact">
+  <form class="contacto">
+    <div class="fila"><input class="usuario" [formControl]="nombre" (ngModel)="nombre" type="text" placeholder="Nombre">
+    </div>
+    <span class="alertVal" [hidden]="nombre.valid || nombre.untouched">Por favor escriba un nombre.</span>
+    <div class="fila"><input class="usuario" (ngModel)="apellido" [formControl]="apellido" type="text"
+        placeholder="Apellido"></div>
+    <div class="fila"><input class="email" [formControl]="email" (ngModel)="email" type="email"
+        placeholder="Correo electrónico"></div>
+    <span class="alertVal" [hidden]="email.valid || email.untouched">Por favor escriba un correo valido.</span>
+    <div class="fila"><select class="asunto" (ngModel)="asunto" [formControl]="asunto">
+        <option value="" disabled selected hidden>Selecciona un asunto</option>
+        <option>Comentario</option>
+        <option>Sugerencia</option>
+        <option>Otro</option>
+      </select></div>
+    <div class="fila"><textarea (ngModel)="mensaje" [formControl]="mensaje" rows="6" cols="80"
+        placeholder="Escribe aquí tu mensaje"></textarea></div>
+    <span class="alertVal" [hidden]="mensaje.valid || mensaje.untouched">Por favor escriba un mensaje.</span>
+    <div class="fila">
+      <button [disabled]="nombre.invalid || mensaje.invalid || email.invalid || asunto.invalid" type="submit"
+        class="btn btn-primary" (click)="contact()">Enviar</button>
+    </div>
+  </form>
+</div>

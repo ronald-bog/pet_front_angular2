@@ -1,0 +1,86 @@
+<header>
+  <a routerLink="/">
+    <div class="logo"></div>
+  </a>
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="/galeria">Galeria</a>
+      </li>
+      <li class="sep">|</li>
+      <li *ngIf="session">
+        <a routerLink="/catalog">Catálogo</a>
+      </li>
+      <li *ngIf="session" class="sep">|</li>
+      <li *ngIf="session">
+        <select (change)="type($event)">
+          <option value="" disabled selected>Razas</option>
+          <option value="beagle">Beagle</option>
+          <option value="cocker">Cocker Spaniel</option>
+          <option value="shiba">Shiba Inu</option>
+          <option value="other">Other</option>
+          <option value="cat">Cats</option>
+        </select>
+      </li>
+      <li *ngIf="session" class="sep">|</li>
+      <li *ngIf="!session">
+        <a routerLink="/register">Registrarse</a>
+      </li>
+      <li *ngIf="!session" class="sep">|</li>
+      <li>
+        <a routerLink="/contact">Contáctanos</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div (click)="changeTheme('dark')" class="theme"></div>
+  <button *ngIf="!session" type="submit" routerLink="/login">LOGIN</button>
+  <button *ngIf="session" class="logout" type="submit" (click)="logout()">Cerrar Sesión</button>
+
+  <div (click)="toggleMenu()" [ngClass]="{ 'abierto': isBurgerOpen }" class="burger">
+    <div class="barra superior"></div>
+    <div class="barra media"></div>
+    <div class="barra inferior"></div>
+  </div>
+</header>
+
+<menu [ngClass]="{ 'abierto': isMenuOpen }">
+  <nav>
+    <button *ngIf="!session" type="submit" routerLink="/login" (click)="toggleMenu()">LOGIN</button>
+    <button *ngIf="session" class="logout" type="submit" (click)="logoutB()">Cerrar Sesión</button>
+    <hr>
+    <a class="nav-link" routerLink="/galeria" (click)="toggleMenu()">Galeria</a>
+    <hr>
+    <a class="nav-link" *ngIf="session" routerLink="/catalog" (click)="toggleMenu()">Catalogo</a>
+    <hr *ngIf="session">
+    <select *ngIf="session" (change)="type($event)">
+      <option value="" disabled selected>Razas</option>
+      <option value="beagle">Beagle</option>
+      <option value="cocker">Cocker Spaniel</option>
+      <option value="shiba">Shiba Inu</option>
+      <option value="other">Other</option>
+      <option value="cat">Cats</option>
+    </select>
+    <hr *ngIf="session">
+    <a *ngIf="!session" class="nav-link" routerLink="/register" (click)="toggleMenu()">Registrarse</a>
+    <hr *ngIf="!session">
+    <a class="nav-link" routerLink="/contact" (click)="toggleMenu()">Contáctanos</a>
+    <hr>
+  </nav>
+</menu>
+
+<div class="bar">
+  <ul class="nav-links">
+    <li *ngIf="bar[0]"><a>{{title}}</a> </li>
+    <li *ngIf="bar[1]"><a class="sep">|</a></li>
+    <li *ngIf="bar[1]">
+      <select id="organizar" (change)="onSeleccionarOrden($event)">
+        <option value="" disabled selected>Organizar por</option>
+        <option value="recientes">Recientes</option>
+        <option value="antiguos">Antiguos</option>
+      </select>
+    </li>
+    <li *ngIf="bar[2]"><a class="sep">|</a></li>
+    <li *ngIf="bar[2]"><a>{{prueba}}</a> </li>
+  </ul>
+</div>

@@ -1,0 +1,127 @@
+$black: #2c2c2c;
+$brown: #a25843;
+$brownH: #dd8d54;
+$colW: white;
+$colBT: black;
+$colG: #dadada;
+$home1: '/assets/front1.jpg';
+$home2: '/assets/front2.jpg';
+$home3: '/assets/front3.jpg';
+$logoL: '/assets/logo_L.svg';
+$logoD: '/assets/logo_D.svg';
+$themeL: '/assets/icons/moon.svg';
+$themeD: '/assets/icons/sun.svg';
+$userL: '/assets/icons/userD.svg';
+$userD: '/assets/icons/user.svg';
+$keyL: '/assets/icons/keyD.svg';
+$keyD: '/assets/icons/key.svg';
+$mailL: '/assets/icons/mailD.svg';
+$mailD: '/assets/icons/mail.svg';
+$listL: '/assets/icons/listD.svg';
+$listD: '/assets/icons/list.svg';
+$exclamation: '/assets/icons/exclamation.svg';
+$xmark: '/assets/icons/xmark.svg';
+$like: '/assets/icons/like.svg';
+$unlike: '/assets/icons/unlike.svg';
+$visits: '/assets/icons/visits.svg';
+
+@mixin m1366 {
+  @media (min-width: 1360px) {
+    @content
+  }
+}
+
+;
+
+@mixin m720 {
+  @media (min-width: 720px) {
+    @content
+  }
+}
+
+;
+
+@font-face {
+  font-family: "ubuntu";
+  src: url('../src/assets/fonts/Ubuntu-Regular.ttf');
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'ubuntu';
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 12em;
+}
+
+//theme dark
+.dark {
+  background-color: $colBT;
+  color: $colW;
+
+  header {
+    background-color: $colBT;
+
+    .logo {
+      background-image: url('#{$logoD}');
+    }
+
+    nav {
+      li {
+        select {
+          background-color: $colBT;
+          color: $colW;
+
+          option {
+            color: $colW;
+          }
+        }
+
+        a {
+          color: $colW;
+        }
+
+        :hover {
+          color: $brown;
+        }
+      }
+
+      .sep {
+        color: $brown;
+      }
+    }
+
+    .theme {
+      background-image: url('#{$themeD}');
+    }
+  }
+}
+
+.buttonUP {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  width: 60px;
+  z-index: 999;
+
+  &:hover {
+    filter: opacity(0.8);
+  }
+}
+
+@import 'scss/header';
+@import 'scss/footer';
+// @import 'scss/home';
+// @import 'scss/login';
+@import 'scss/gallery';
+@import 'scss/spinner';
+@import 'scss/lightbox';
+// @import 'scss/form';

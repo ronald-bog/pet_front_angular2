@@ -1,0 +1,7 @@
+{
+  "/bak/*":{
+    "target":"http://localhost",
+    "secure":false,
+    "loglevel":"debug"
+  }
+}

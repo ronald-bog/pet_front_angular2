@@ -1,0 +1,225 @@
+/// FORMULARIO CONTACTO ///
+.encabezado-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em 7em 1.5em;
+  @include m500{
+    padding: 1em;
+  }
+}
+
+.container-contact {
+  display: flex;
+  padding: 1.5em 7em 6em;
+  @include m500{
+    padding: .5em 1em 18em;
+  }
+
+  .contacto {
+    width: 20%;
+    margin: auto;
+    @include m720 {
+      width: 70%;
+    }
+    @include m500 {
+      width: 80%;
+    }
+
+    .fila {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1.5em 0 0;
+
+      input,
+      select,
+      textarea {
+        border: none;
+        font-size: 1em;
+        padding: 0.3em 1em;
+        width: 100%;
+        border-bottom: 1.5px solid $black;
+
+        &:focus {
+          outline: none;
+          border-bottom: 1.5px solid $brown;
+        }
+      }
+
+      input,
+      select,
+      select {
+        &.usuario {
+          background-image: url('#{$userL}');
+        }
+
+        &.asunto {
+          background-image: url('#{$listL}');
+        }
+
+        &.email {
+          background-image: url('#{$mailL}');
+        }
+      }
+
+      input,
+      select {
+
+        &.usuario,
+        &.email,
+        &.asunto {
+          background-size: 1em;
+          background-repeat: no-repeat;
+          background-position: .4em .4em;
+          padding-left: 2em;
+        }
+      }
+
+      textarea {
+        border: 1.5px solid $black;
+        border-radius: 10px;
+      }
+
+      button {
+        border: none;
+        background-color: $brown;
+        color: $colW;
+        font-size: 1rem;
+        font-weight: normal;
+        padding: 0.5em 1em;
+        border-radius: 0.3em;
+        cursor: pointer;
+        transition: all ease-in-out 400ms;
+
+        &:hover {
+          background-color: $brownH;
+        }
+
+        &:disabled {
+          background-color: $colG;
+        }
+      }
+    }
+
+    .alertVal {
+      background-image: url('#{$exclamation}');
+      background-size: .8em;
+      background-repeat: no-repeat;
+      background-position: 2em .2em;
+      padding-left: 3em;
+      font-size: .8em;
+      color: $brown;
+    }
+  }
+}
+
+// .container {
+//   display: flex;
+//   padding: 20px 100px 0px;
+
+//   .contacto {
+//     width: 30%;
+//     margin: 0 auto;
+
+//     .alertVal {
+//       background-image: url('#{$exclamation}');
+//       background-size: 0.8em;
+//       background-repeat: no-repeat;
+//       background-position: 0 4px;
+//       padding-left: 1.5em;
+//       margin-top: -10px;
+//       margin-left: 15px;
+//       font-size: 10pt;
+//       color: $brown;
+//     }
+
+//     .fila {
+//       display: flex;
+//       flex-wrap: wrap;
+//       padding: 0.8rem;
+
+//       input {
+//         border: none;
+//         border-bottom: 1.5px solid $black;
+//         font-size: 1rem;
+//         padding: 0.3em 1em;
+//         width: 100%;
+
+//         &.usuario {
+//           background-image: url('#{$userL}');
+//           background-size: 1em;
+//           background-repeat: no-repeat;
+//           background-position: 0 7px;
+//           padding-left: 2em;
+//         }
+
+//         &.email {
+//           background-image: url('#{$mailL}');
+//           background-size: 1em;
+//           background-repeat: no-repeat;
+//           background-position: 0 7px;
+//           padding-left: 2em;
+//         }
+//         &:focus {
+//           outline: none;
+//           border-bottom: 1.5px solid $brown;
+//         }
+//       }
+
+//       select {
+//         border: none;
+//         border-bottom: 1.5px solid $black;
+//         font-size: 1rem;
+//         padding: 0.3em 1em;
+//         width: 100%;
+//         color: $black;
+
+//         &.asunto {
+//           background-image: url('#{$listL}');
+//           background-size: 1em;
+//           background-repeat: no-repeat;
+//           background-position: 0 7px;
+//           padding-left: 2em;
+//         }
+
+//         &:focus {
+//           outline: none;
+//           border-bottom: 1.5px solid $brown;
+//         }
+//       }
+
+//       textarea {
+//         border: 1.5px solid $black;
+//         border-radius: 10px;
+//         font-size: 1rem;
+//         padding: 0.3em 1em;
+//         width: 100%;
+
+//         &:focus {
+//           outline: none;
+//           border: 1.5px solid $brown;
+//         }
+//       }
+
+//       button {
+//         border: none;
+//         background-color: $brown;
+//         color: $colW;
+//         font-size: 1rem;
+//         font-weight: normal;
+//         padding: 0.5em 1em;
+//         border-radius: 0.3em;
+//         cursor: pointer;
+//         transition: all ease-in-out 400ms;
+
+//         &:hover {
+//           background-color: $brownH;
+//         }
+
+//         &:disabled {
+//           background-color: $colG;
+//         }
+//       }
+//     }
+//   }
+// }

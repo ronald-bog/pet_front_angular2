@@ -1,0 +1,30 @@
+<app-spinner *ngIf="spinner" />
+<div class="gallery-container" infiniteScroll (scrolled)="onScrollDown()">
+  <div class="gallery">
+    <div *ngFor="let i of catalog; let j=index">
+      <div class="gallery-img">
+        <span>
+          <p *ngIf="!likes.includes(i.id)" class="unlike" (click)="like(i.id)">{{i.likes}}</p>
+          <p *ngIf="likes.includes(i.id)">{{i.likes}}</p>
+          <p class="visits">{{i.visits}}</p>
+        </span>
+        <img src="../../../assets/img/{{i.id}}.jpg" alt="" (click)="onLightbox(j, i.id)">
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="lightbox" class="lightbox">
+  <span class="count">{{currentIndex+1}}/{{totalImages}}</span>
+  <button class="close-btn" (click)="offLightbox()">
+    <i class="far fa-times"></i>
+  </button>
+  <button class="btn-lightbox-carousel btn-prev" (click)="prev()">
+    <i class="fas fa-arrow-circle-left icon-lightbox-carousel icon-prev"></i>
+  </button>
+  <button class="btn-lightbox-carousel btn-next" (click)="next()">
+    <i class="fas fa-arrow-circle-right icon-lightbox-carousel icon-next"></i>
+  </button>
+  <div class="lightbox-img">
+    <img src="../../../assets/img/{{catalog[currentIndex].id}}.jpg" alt="">
+  </div>
+</div>

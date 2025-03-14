@@ -1,0 +1,242 @@
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.25em;
+  padding: 0 .5em;
+
+  @include m1366 {
+    padding: 0 6em;
+  }
+
+  .logo {
+    width: 150px;
+    height: 85px;
+    background-image: url('#{$logoL}');
+    background-repeat: no-repeat;
+    background-position: center left;
+  }
+
+  nav {
+    display: none;
+
+    @include m1366 {
+      display: flex;
+      list-style: none;
+
+      li {
+        display: inline-block;
+        padding: 0 1em;
+
+        &:hover {
+          transform: scale(1.05);
+          transition: font-weight 0.2s ease;
+        }
+
+        a {
+          color: $black;
+          font-weight: bold;
+          font-size: 1.2em;
+          text-decoration: none;
+        }
+
+        select {
+          width: 80px;
+          border: none;
+          font-size: 1.2em;
+          font-weight: bold;
+          cursor: pointer;
+
+          option {
+            color: $brown;
+          }
+        }
+      }
+    }
+  }
+
+  .theme {
+    width: 25px;
+    height: 25px;
+    background-image: url('#{$themeL}');
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  button {
+    display: none;
+
+    @include m1366 {
+      display: flex;
+      border: none;
+      background-color: $brown;
+      color: white;
+      font-size: 1em;
+      padding: 0.4em 2em;
+      border-radius: 0.3em;
+      cursor: pointer;
+      transition: all ease-in-out 300ms;
+
+      &:hover {
+        background-color: $brownH;
+      }
+
+      &.logout {
+        background-color: $colW;
+        color: $brown;
+        border: 1px solid $brown;
+
+        &:hover {
+          background-color: $brownH;
+          color: $colW;
+        }
+      }
+    }
+  }
+
+  .burger {
+    cursor: pointer;
+
+    @include m1366 {
+      display: none;
+    }
+
+    .barra {
+      width: 40px;
+      height: 4px;
+      margin: 6px;
+      background-color: $brown;
+      transition: 400ms all ease-in-out;
+    }
+
+    &.abierto {
+      .barra {
+        background-color: $brown;
+
+        &.superior {
+          transform: translateY(10px) rotateZ(45deg);
+        }
+
+        &.media {
+          width: 0;
+        }
+
+        &.inferior {
+          transform: translateY(-10px) rotateZ(-45deg);
+        }
+      }
+    }
+  }
+}
+
+/* Menú lateral */
+menu {
+  position: fixed;
+  left: -360px;
+  width: 300px;
+  height: 350px;
+  top: 110px;
+  background-color: $black;
+  padding: 1em;
+  transition: all 700ms ease-in-out;
+
+  &.abierto {
+    left: 0;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      display: flex;
+      padding: 1rem 0;
+      color: $colW;
+      font-size: 1.1rem;
+      transition: 300ms all ease-in-out;
+      text-decoration: none;
+      justify-content: center;
+
+      &:hover {
+        color: $brown;
+      }
+    }
+
+    hr {
+      width: 100%;
+      border-color: $brown;
+    }
+  }
+
+  button {
+    background-color: $brown;
+    color: white;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 10px;
+    border: 0;
+    font-size: 20pt;
+    margin-bottom: 1em;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $brownH;
+    }
+
+    &.logout {
+      background-color: $colW;
+      color: $brown;
+      border: 1px solid $brown;
+
+      &:hover {
+        background-color: $brownH;
+        color: $colW;
+      }
+    }
+  }
+
+  select {
+    position: relative;
+    width: 95px;
+    left: 83px;
+    background-color: $black;
+    padding: 0.9rem;
+    color: $colW;
+    border: none;
+    font-size: 1.1rem;
+
+    &:hover {
+      color: $brown;
+    }
+
+    option {
+      color: $colW;
+    }
+  }
+}
+
+/* bar */
+.bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  background: $black;
+  color: $colW;
+
+  .nav-links {
+    list-style: none;
+
+    li {
+      display: inline;
+      padding: 0 1em;
+
+      a {
+        font-size: 1em;
+        text-decoration: none;
+        color: $colW;
+      }
+    }
+  }
+}
